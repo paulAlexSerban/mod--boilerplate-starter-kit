@@ -7,16 +7,16 @@
 # makes sure the folder containing the script will be the root folder
 cd "$(dirname "$0")" || exit
 
-sed -i -e "s/tpl--clean-boilerplate/$PROJECT_NAME/g" package.json
-sed -i -e "s/tpl--clean-boilerplate/$PROJECT_NAME/g" README.md
-sed -i -e "s/tpl--clean-boilerplate/$PROJECT_NAME/g" release.config.js
+find ./*.json -type f -exec sed -i '' -e "s/tpl--clean-boilerplate/$PROJECT_NAME/g" '{}' ';'
+find ./*.md -type f -exec sed -i '' -e "s/tpl--clean-boilerplate/$PROJECT_NAME/g" '{}' ';'
+find ./*.config.js -type f -exec sed -i '' -e "s/tpl--clean-boilerplate/$PROJECT_NAME/g" '{}' ';'
 
-sed -i -e "s/clean-boilerplate-server/$COMPOSE_PROJECT_NAME/g" file.txt
-sed -i -e "s/clean-boilerplate-container/$DOCKER_CONTAINER_NAME/g" file.txt
+find ./*.json -type f -exec sed -i '' -e "s/clean-boilerplate-server/$PROJECT_NAME/g" '{}' ';'
+find ./*.md -type f -exec sed -i '' -e "s/clean-boilerplate-server/$PROJECT_NAME/g" '{}' ';'
+find ./*.config.js -type f -exec sed -i '' -e "s/clean-boilerplate-server/$PROJECT_NAME/g" '{}' ';'
 
-# sed - stream editor
-#   -i - 
-#   -e - exporession, regular expression
+find ./*.json -type f -exec sed -i '' -e "s/clean-boilerplate-container/$PROJECT_NAME/g" '{}' ';'
+find ./*.md -type f -exec sed -i '' -e "s/clean-boilerplate-container/$PROJECT_NAME/g" '{}' ';'
+find ./*.config.js -type f -exec sed -i '' -e "s/clean-boilerplate-container/$PROJECT_NAME/g" '{}' ';'
 
-# example: sed 's/old_string/new_string/g' filename.txt
-# read more: https://duckduckgo.com/?q=linux+sed&ia=web
+rm ./wiki/CHANGELOG.md
