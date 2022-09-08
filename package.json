@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo 'INFO: no test scripts configured'",
-    "lint": "shellcheck ./**/*.bash",
+    "lint": "echo 'INFO: no lint scripts configured'",
     "install:ci": "npm ci --omit=dev --ignore-scripts",
     "install:root": "npm install",
     "prepare": "husky install"
