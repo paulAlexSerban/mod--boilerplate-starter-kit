@@ -5,6 +5,3 @@
 2. change the namings as desired
 3. RUN `bash setupProject.bash` to rename configuration files
 4. DELETE `setupProject.bash` as the file is needed ony to setup a new project
-
-## TODO:
-- add script to reset the version

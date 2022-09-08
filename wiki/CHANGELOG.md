@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/paulAlexSerban/tpl--clean-boilerplate/compare/v1.0.0...v1.0.1) (2022-09-08)
+
+
+### Bug Fixes
+
+* update readme and add git-sync script ([c563aba](https://github.com/paulAlexSerban/tpl--clean-boilerplate/commit/c563aba32ee9ac683aca78703d0aa82af7104239))
+
 # 1.0.0 (2022-09-08)
 
 
