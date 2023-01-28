@@ -1,6 +1,7 @@
 module.exports = {
   branches: "release",
-  repositoryUrl: "https://github.com/paulAlexSerban/tpl--clean-boilerplate",
+  repositoryUrl:
+    "https://github.com/paulAlexSerban/mod--boilerplate-starter-kit",
   plugins: [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
