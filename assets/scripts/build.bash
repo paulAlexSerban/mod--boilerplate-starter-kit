@@ -1,7 +1,7 @@
 #!bin/bash
 # makes sure the folder containing the script will be the root folder
 cd "$(dirname "$0")" || exit
-source ../mob.env
+source ../mom.env
 
 export PARENT_MODULE_NAME="${PROJECT_NAME} / ${MODULE_NAME}"
 

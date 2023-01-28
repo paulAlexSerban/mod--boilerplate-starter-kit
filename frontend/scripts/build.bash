@@ -3,7 +3,7 @@
 cd "$(dirname "$0")" || exit
 
 source ../../config/config.common.env
-source ../mob.env
+source ../mom.env
 
 export PARENT_MODULE_NAME="${PROJECT_NAME} / ${MODULE_NAME}"
 
