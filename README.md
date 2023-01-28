@@ -1,7 +1,5 @@
-# tpl--clean-boilerplate
+# Boilerplate Starter Kit for Modulize FlexiWorks
 
-## How to use:
-1. go to `./config.end`
-2. change the namings as desired
-3. RUN `bash setupProject.bash` to rename configuration files
-4. DELETE `setupProject.bash` as the file is needed ony to setup a new project
+## Glossary
+- `mom.env` - Module Object Model
+

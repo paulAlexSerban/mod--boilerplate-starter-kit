@@ -4,11 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo 'INFO: no test scripts configured'",
-    "lint": "echo 'INFO: no lint scripts configured'",
+    "test": "echo 'Error: no test specified'",
+    "lint": "echo 'Error: no lint specified'",
     "install:ci": "npm ci --omit=dev --ignore-scripts",
     "install:root": "npm install",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "formats:check": "npx prettier --check .",
+    "formats:write": "npx prettier --write ."
   },
   "author": "",
   "license": "ISC",
@@ -17,7 +19,8 @@
     "@commitlint/config-conventional": "^16.2.4",
     "cz-conventional-changelog": "^3.3.0",
     "gulp": "^4.0.2",
-    "husky": "^7.0.4"
+    "husky": "^7.0.4",
+    "prettier": "^2.7.1"
   },
   "dependencies": {
     "@semantic-release/changelog": "^6.0.1",
