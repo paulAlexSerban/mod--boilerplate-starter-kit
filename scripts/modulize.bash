@@ -1,6 +1,6 @@
 #!/bin/bash
 set -eo pipefail
-MODULIZE_VERSION="1.0.2"
+MODULIZE_VERSION="1.0.3"
 # makes sure the folder containing the script will be the root folder
 cd "$(dirname "$0")" || exit
 
@@ -64,7 +64,7 @@ init() {
 
     if [[ -f "${PHASE_PATH}/scripts/${PHASE_NAME}.bash" ]]; then
       print_info "${PHASE_NAME}ing ${BLUE}${PHASE_DIR}${NC}"
-      bash "${PHASE_PATH}/scripts/${PHASE_NAME}.bash" $ENV
+      bash "${PHASE_PATH}/scripts/${PHASE_NAME}.bash" -e $ENV
 
       # Print a message indicating that the module has been installed and how long it took
       print_info "${PHASE_NAME}ed ${BLUE}${PHASE_DIR}${NC}"
