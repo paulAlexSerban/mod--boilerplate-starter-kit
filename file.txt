@@ -1,3 +1,0 @@
-project name is:              tpl--clean-boilerplate
-compose server name is:       clean-boilerplate-server
-docker container name :       clean-boilerplate-container
