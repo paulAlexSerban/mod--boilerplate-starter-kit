@@ -1,3 +1,21 @@
+# [1.2.0](https://github.com/paulAlexSerban/mod--boilerplate-starter-kit/compare/v1.1.0...v1.2.0) (2023-05-02)
+
+
+### Bug Fixes
+
+* adjusted some shelllinter errors ([274bc72](https://github.com/paulAlexSerban/mod--boilerplate-starter-kit/commit/274bc724400c9c1392c7244f3ab706595bde0f14))
+* **namings and readme:** adjustments ([db43afa](https://github.com/paulAlexSerban/mod--boilerplate-starter-kit/commit/db43afaed50c8d2c0e5e31dbcaa8e5e5c0c6f6bc))
+* **scripts:** added enviorment variable as argument to called script ([42cd2b0](https://github.com/paulAlexSerban/mod--boilerplate-starter-kit/commit/42cd2b0837bdea3bb85ec1c580c015989ccfd592))
+* **scripts:** implemented env variable as argument in child shells ([6e2c008](https://github.com/paulAlexSerban/mod--boilerplate-starter-kit/commit/6e2c00848b988bdff684dfe420d1c0f2a50de3fd))
+* **workflows:** removed link bash workflow ([2af5b7f](https://github.com/paulAlexSerban/mod--boilerplate-starter-kit/commit/2af5b7f101ac3082837146b63f2471e0e756c863))
+
+
+### Features
+
+* adjusted modulize script ([cef1562](https://github.com/paulAlexSerban/mod--boilerplate-starter-kit/commit/cef1562168f4daabde216a42eecf57b86f4dbf7d))
+* did some cleanup ([695bc69](https://github.com/paulAlexSerban/mod--boilerplate-starter-kit/commit/695bc69ecd130e57440fa9d441efac3c59d5d976))
+* **wip:** assets ([bd25f44](https://github.com/paulAlexSerban/mod--boilerplate-starter-kit/commit/bd25f44bfbb4405061c8ebb4312c8d541defb005))
+
 # [1.1.0](https://github.com/paulAlexSerban/mod--boilerplate-starter-kit/compare/v1.0.1...v1.1.0) (2023-01-28)
 
 
