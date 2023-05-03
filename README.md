@@ -1,4 +1,4 @@
-# Boilerplate Starter Kit for Modulize FlexiWorks
+# Boilerplate Starter Kit
 
 ## Project Brief
 
