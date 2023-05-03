@@ -1,4 +1,4 @@
-# Boilerplate Starter Kit
+# Modulize (Boilerplate Starter Kit)
 
 ## Project Brief
 
