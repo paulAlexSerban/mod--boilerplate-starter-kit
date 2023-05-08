@@ -6,6 +6,12 @@ cd "$(dirname "$0")" || exit
 
 . ../config/config.common.env
 
+# Colors for printing messages
+NC='\033[0m' # No Color
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+
 print_info() {
   echo -e "${GREEN} [ info ] ${NC}" "$1"
 }
