@@ -1,10 +1,18 @@
 #!/bin/bash
 set -eo pipefail
-MODULIZE_VERSION="1.2.1"
+MODULIZE_VERSION=$(node -p "require('./package.json').version")
+PORJECT_NAME=$(node -p "require('./package.json').name")
+PORJECT_AUTHOR=$(node -p "require('./package.json').author")
 # makes sure the folder containing the script will be the root folder
 cd "$(dirname "$0")" || exit
 
-. ../config/config.common.env
+. ./config.env
+
+# Colors for printing messages
+NC='\033[0m' # No Color
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
 
 print_info() {
   echo -e "${GREEN} [ info ] ${NC}" "$1"
@@ -15,33 +23,43 @@ print_error() {
 }
 
 usage() {
-  print_error "Usage: $(basename "$0") [-e ENV] [-p PHASE] [-m MODULE]"
-  print_error "   - mandatory: -p PHASE"
-  print_error "   - mandatory: -e ENV"
-  print_error "   - optional:  -m MODULE"
+  print_error "Usage: $(basename "$0") [-e|--env ENV] [-p|--phase PHASE] [-m|--module MODULE]"
+  print_error "   - mandatory: -p|--phase PHASE"
+  print_error "   - mandatory: -e|--env ENV"
+  print_error "   - optional:  -m|--module MODULE"
   exit 1
 }
 
 print_header() {
   echo "================================================"
-  echo -e "   Modulze Project Automation"
+  echo -e "   Modulize Project Automation by Paul Serban"
+  echo -e "   Project Name: ${BLUE}${PORJECT_NAME}${NC}"
   echo -e "   Version: ${BLUE}${MODULIZE_VERSION}${NC}"
-  echo -e "   Author:  ${BLUE}Paul Serban${NC}"
+  echo -e "   Project Author:  ${BLUE}${PORJECT_AUTHOR}${NC}"
   echo "================================================"
 }
 
 # Parse command-line options
-while getopts ":m:p:e:" opt; do
-  case $opt in
-  m) MODULE="$OPTARG" ;;
-  p) PHASE="$OPTARG" ;;
-  e) ENV="$OPTARG" ;;
-  *) usage ;;
+while :; do
+  case $1 in
+  -m | --module)
+    shift
+    MODULE="$1"
+    shift
+    ;;
+  -p | --phase)
+    shift
+    PHASE="$1"
+    shift
+    ;;
+  -e | --env)
+    shift
+    ENV="$1"
+    shift
+    ;;
+  *) break ;;
   esac
 done
-
-# Shift the options and arguments so that $1 refers to the first non-option argument
-shift $((OPTIND - 1))
 
 print_header
 # Validate command-line options
@@ -52,7 +70,8 @@ if [[ -z $ENV ]]; then
   ENV=dev
 fi
 
-. "../config/config.${ENV}.env"
+# Set NODE_ENV to the specified environment
+NODE_ENV=$ENV
 export $NODE_ENV
 print_info "Running in ${BLUE} ${NODE_ENV} ${NC} mode"
 
@@ -74,64 +93,65 @@ init() {
   init_submodules() {
 
     local MODULE_NAME=$1
+    local PROJECT_MODULES=("${INSTALL_PROJECT_MODULES[@]}")
 
-    for i in "${INSTALL_PROJECT_MODULES[@]}"; do
-      local MODULE_DIR=../${i}
+    if [[ $PHASE == "clean" ]] || [[ $PHASE == "uninstall" ]]; then
+      PROJECT_MODULES=("${UNINSTALL_PROJECT_MODULES[@]}")
+    fi
+
+    for i in "${PROJECT_MODULES[@]}"; do
+      local MODULE_DIR=./${i}
       # Find all submodules inside the module directory and save them to an array
       local SUBMODULES=($(find "${MODULE_DIR}" -mindepth 1 -maxdepth 1 -type d -exec basename {} \;))
 
       # Loop through the array and print each directory
       for DIR in "${SUBMODULES[@]}"; do
         if [[ "$DIR" == "scripts" ]]; then
-          phase ../${i} ${PHASE} ${i}
+          phase ./${i} ${PHASE} ${i}
         fi
-
-        if [[ ! -f "../${i}/config.env" ]]; then
-          phase ../${i}/${DIR} ${PHASE} ${DIR}
+        if [[ ! -f "./${i}/config.env" ]]; then
+          phase ./${i}/${DIR} ${PHASE} ${DIR}
         fi
       done
 
-      if [[ -f "../${i}/config.env" ]]; then
-        . "../${i}/config.env"
+      if [[ -f "./${i}/config.env" ]]; then
+        . "./${i}/config.env"
 
         for j in "${INSTALL_MODULE_SUBPROJECTS[@]}"; do
-          phase ../${i}/${j} ${PHASE} ${j}
+          phase ./${i}/${j} ${PHASE} ${j}
         done
       else
-        local SUBMODULES=($(find "../${i}" -mindepth 1 -maxdepth 1 -type d -exec basename {} \;))
+        local SUBMODULES=($(find "./${i}" -mindepth 1 -maxdepth 1 -type d -exec basename {} \;))
         for DIR in "${SUBMODULES[@]}"; do
-          phase ../${i}/${DIR} ${PHASE} ${DIR}
+          phase ./${i}/${DIR} ${PHASE} ${DIR}
         done
       fi
     done
   }
-
   if [[ -n "${MODULE}" ]]; then
-    # Loop through the INSTALL_PROJECT_MODULES array and check if the MODULE exists
-    for i in "${INSTALL_PROJECT_MODULES[@]}"; do
+    # Loop through the PROJECT_MODULES array and check if the MODULE exists
+    for i in "${PROJECT_MODULES[@]}"; do
       if [[ "$i" = "${MODULE}" ]]; then
         # if the MODULE exists then execute the PHASE script
-        phase ../${MODULE} ${PHASE} ${MODULE}
+        phase ./${MODULE} ${PHASE} ${MODULE}
         exit 0
       fi
-
-      # if the MODULE does not exists check each existing module if there is an existing MODULE inside
-      local MODULE_DIR=../${i}
+      # if the MODULE does not exist, check each existing module if there is an existing MODULE inside
+      local MODULE_DIR=./${i}
       # Find all submodules inside the module directory and save them to an array
       local SUBMODULES=($(find "${MODULE_DIR}" -mindepth 1 -maxdepth 1 -type d -exec basename {} \;))
       # Loop through the array and print each directory
       for DIR in "${SUBMODULES[@]}"; do
-        # If any of the submodules is the same as the specified module execute phase script
+        # If any of the submodules is the same as the specified module, execute phase script
         if [[ "${DIR}" == "${MODULE}" ]]; then
-          phase ../${i}/${DIR} $PHASE $MODULE
+          phase ./${i}/${DIR} $PHASE $MODULE
         fi
       done
     done
   else
-    print_info "No module selected - Running ${BLUE} ${NODE_ENV} ${NC} on all modules"
+    print_info "No module selected - Running ${BLUE}${PHASE} ${NC}in${BLUE} ${NODE_ENV}${NC} enviorment on all modules"
     init_submodules
   fi
 }
 
-# Run the initialization function
 init
