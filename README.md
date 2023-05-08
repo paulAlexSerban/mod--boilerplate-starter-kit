@@ -1,4 +1,5 @@
-# Modulize (Boilerplate Starter Kit)
+# Modulize
+> Project task runner for modular projects
 
 ## Project Brief
 
@@ -114,7 +115,7 @@ MODULE_DIR
     └── source
 ```
 
-### Module `config.env`
+### Per-module `config.env`
 
 - if MODULE_DIR contains `config.env`:
   - inside `config.env` the variables keeping the submodules names must be declared
