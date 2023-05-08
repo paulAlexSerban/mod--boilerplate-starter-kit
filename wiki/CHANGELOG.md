@@ -1,3 +1,11 @@
+# [1.3.0](https://github.com/paulAlexSerban/mod--boilerplate-starter-kit/compare/v1.2.0...v1.3.0) (2023-05-08)
+
+
+### Features
+
+* **core:** extra options and phase dependet oder of execution ([5c5cb9d](https://github.com/paulAlexSerban/mod--boilerplate-starter-kit/commit/5c5cb9dc70cbda58f6c08ce5943d94795621e6fe))
+* **package.json:** added predifined scripts ([08ad317](https://github.com/paulAlexSerban/mod--boilerplate-starter-kit/commit/08ad317020a7912c95c339b51cc01cfdc52c67a7))
+
 # [1.2.0](https://github.com/paulAlexSerban/mod--boilerplate-starter-kit/compare/v1.1.0...v1.2.0) (2023-05-02)
 
 
