@@ -1,5 +1,5 @@
 {
-  "name": "tpl--clean-boilerplate",
+  "name": "modulize",
   "version": "1.2.0",
   "description": "",
   "main": "index.js",
@@ -10,9 +10,13 @@
     "install:root": "npm install",
     "prepare": "husky install",
     "formats:check": "npx prettier --check .",
-    "formats:write": "npx prettier --write ."
+    "formats:write": "npx prettier --write .",
+    "MODULIZE":"SCRIPTS",
+    "mdz:dev:build":"bash modulize.bash --env dev --phase build",
+    "mdz:dev:clean":"bash modulize.bash --env dev --phase clean",
+    "mdz:dev:install":"bash modulize.bash --env dev --phase install"
   },
-  "author": "",
+  "author": "Paul Serban",
   "license": "ISC",
   "devDependencies": {
     "@commitlint/cli": "^16.2.4",
