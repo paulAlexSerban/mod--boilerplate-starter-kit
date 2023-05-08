@@ -139,3 +139,20 @@ MODULE_DIR
   INSTALL_MODULE_SUBPROJECTS=("traefik" "nginx" "database" "wordpress")
   UNINSTALL_MODULE_SUBPROJECTS=("nginx" "wordpress" "database" "traefik" )
 ```
+
+## Post-MVP Improvements & To Do's
+
+### Functional Improvements:
+
+- Support execution of tasks on modules and submodules in order specified in INSTALL*\* or UNINSTALL*\* variables
+- Support for additional task types, such as linting and code analysis.
+- Parallel execution of tasks for improved performance.
+- Integration with Continuous Integration (CI) and Continuous Deployment (CD) tools for seamless project management.
+- Enhanced error handling and reporting capabilities for better debugging.
+- Support for custom task plugins, allowing users to extend Modulize's functionality.
+
+### Non-Functional Improvements:
+
+- Improved documentation and examples for easier adoption.
+- Performance optimizations for faster task execution.
+- Enhanced modularity and code organization for better maintainability.
