@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/paulAlexSerban/mod--boilerplate-starter-kit/compare/v1.3.0...v1.3.1) (2023-05-24)
+
+
+### Bug Fixes
+
+* **module selection function:** fix module selection feature ([49c6cad](https://github.com/paulAlexSerban/mod--boilerplate-starter-kit/commit/49c6cadbeacdd27fb3961218cb9280137f8ade65))
+
 # [1.3.0](https://github.com/paulAlexSerban/mod--boilerplate-starter-kit/compare/v1.2.0...v1.3.0) (2023-05-08)
 
 
