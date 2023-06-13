@@ -1,6 +1,6 @@
 {
   "name": "modulize",
-  "version": "1.2.0",
+  "version": "1.3.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -11,10 +11,10 @@
     "prepare": "husky install",
     "formats:check": "npx prettier --check .",
     "formats:write": "npx prettier --write .",
-    "MODULIZE":"SCRIPTS",
-    "mdz:dev:build":"bash modulize.bash --env dev --phase build",
-    "mdz:dev:clean":"bash modulize.bash --env dev --phase clean",
-    "mdz:dev:install":"bash modulize.bash --env dev --phase install"
+    "MODULIZE": "SCRIPTS",
+    "mdz:dev:build": "bash modulize.bash --env dev --phase build",
+    "mdz:dev:clean": "bash modulize.bash --env dev --phase clean",
+    "mdz:dev:install": "bash modulize.bash --env dev --phase install"
   },
   "author": "Paul Serban",
   "license": "ISC",

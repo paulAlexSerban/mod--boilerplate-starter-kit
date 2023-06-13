@@ -1,4 +1,5 @@
-# Modulize (Boilerplate Starter Kit)
+# Modulize
+> Project task runner for modular projects
 
 ## Project Brief
 
