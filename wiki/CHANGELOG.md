@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/paulAlexSerban/mod--boilerplate-starter-kit/compare/v1.4.0...v1.5.0) (2023-06-13)
+
+
+### Features
+
+* **migration script:** updated migration script to adjust scripts pathe to config ([628c94f](https://github.com/paulAlexSerban/mod--boilerplate-starter-kit/commit/628c94fdac65db635a51020f055ecddae08342ab))
+
 # [1.4.0](https://github.com/paulAlexSerban/mod--boilerplate-starter-kit/compare/v1.3.1...v1.4.0) (2023-06-13)
 
 
