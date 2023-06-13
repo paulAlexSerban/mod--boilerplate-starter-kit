@@ -1,21 +1,37 @@
 #!/bin/bash
 
 # Define the directory to start from
-DIR="."
+directoryPath="."
 
 # Define old and new file names
-OLD_FILE_NAME=".env.common"
-NEW_FILE_NAME=".env.common"
+oldFileName=".env.common"
+newFileName=".env.common"
 
-# Use the find command to locate the files and rename them
-find "$DIR" -type f -name "$OLD_FILE_NAME" -exec bash -c \
-'echo "Renaming $1"; mv "$1" "${1/$2/$3}"; echo "Renamed to ${1/$2/$3}"' _ {} $OLD_FILE_NAME $NEW_FILE_NAME \;
+# Use the find command to locate files with the old file name
+# Note: This will not do anything if the old file name is the same as the new file name
+# Rename these files with the new file name
+find "$directoryPath" -type f -name "$oldFileName" -print0 | while IFS= read -r -d '' file; do
+    # Generate new file path by replacing old file name with new file name
+    newFilePath="${file/$oldFileName/$newFileName}"
+    
+    # Rename the file and print the update
+    mv "$file" "$newFilePath"
+    echo "Renamed file: $file to $newFilePath"
+done
 
-echo "Files have been renamed."
+echo "All matching files have been renamed."
 
-# This script uses find to locate all files named common.env in the directory tree, and then mv to 
-# rename each one. The ${1/$2/$3} part is a parameter expansion in bash that replaces common.env with .env.common.
+# Now we will replace instances of the oldFileName string within all files under the directoryPath
+find "$directoryPath" -type f -print0 | while IFS= read -r -d '' file; do
+    # Check if the file contains the old file name string
+    if grep -q "$oldFileName" "$file"; then
+        # Use sed to replace the old file name string with the new file name string
+        # Note the '' after -i for macOS
+        sed -i '' "s/$oldFileName/$newFileName/g" "$file"
+        
+        # Print the name of the modified file
+        echo "Modified file: $file"
+    fi
+done
 
-# Be aware that this script will rename all files named common.env under the directory tree, 
-# regardless of their content. Use this with caution and only if you are sure that this is what 
-# you want. Always keep backups of your files when running file modification scripts.
+echo "All string replacements have been done."
