@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/paulAlexSerban/mod--boilerplate-starter-kit/compare/v1.5.0...v1.6.0) (2023-06-13)
+
+
+### Features
+
+* **migration:** adjust script to except certain files and patterns ([a2b07ae](https://github.com/paulAlexSerban/mod--boilerplate-starter-kit/commit/a2b07aed037c3ed67920d0c3695788974b68a667))
+
 # [1.5.0](https://github.com/paulAlexSerban/mod--boilerplate-starter-kit/compare/v1.4.0...v1.5.0) (2023-06-13)
 
 

@@ -7,10 +7,21 @@ directoryPath="."
 oldFileName=".env.common"
 newFileName=".env.common"
 
+# Define patterns to exclude
+excludePatterns=("package-lock.json" "*.log" "*.tmp")
+
+# Build the find command
+findCommand="find \"$directoryPath\" -type f"
+
+# Append each pattern to the find command
+for pattern in "${excludePatterns[@]}"; do
+    findCommand+=" -not -name \"$pattern\""
+done
+
 # Use the find command to locate files with the old file name
 # Note: This will not do anything if the old file name is the same as the new file name
 # Rename these files with the new file name
-find "$directoryPath" -type f -name "$oldFileName" -print0 | while IFS= read -r -d '' file; do
+eval "$findCommand -name \"$oldFileName\" -print0" | while IFS= read -r -d '' file; do
     # Generate new file path by replacing old file name with new file name
     newFilePath="${file/$oldFileName/$newFileName}"
     
@@ -22,7 +33,7 @@ done
 echo "All matching files have been renamed."
 
 # Now we will replace instances of the oldFileName string within all files under the directoryPath
-find "$directoryPath" -type f -print0 | while IFS= read -r -d '' file; do
+eval "$findCommand -print0" | while IFS= read -r -d '' file; do
     # Check if the file contains the old file name string
     if grep -q "$oldFileName" "$file"; then
         # Use sed to replace the old file name string with the new file name string
