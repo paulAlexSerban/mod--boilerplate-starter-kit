@@ -44,7 +44,7 @@ Modulize is implemented using the following technologies:
 
 - Download or clone the Modulize repository to your local machine.
 - Ensure the main script (modulize.sh) is executable by running `chmod +x modulize.sh`.
-- Add `config.env` to your project root directory and add the following environment variables:
+- Add `.env.common` to your project root directory and add the following environment variables:
 
 ```bash
 # 1/ Project modules in order of execution
@@ -57,8 +57,8 @@ PROJECT_NAME=project-name
 COMPOSE_PROJECT_NAME=project-name
 ```
 
-- Each module should have a `config.env` file containing the environment-specific configuration for that module.
-  - Example: `frontend/config.env`
+- Each module should have a `.env.common` file containing the environment-specific configuration for that module.
+  - Example: `frontend/.env.common`
 
 ```bash
 # 1/ Module name
@@ -69,8 +69,8 @@ INSTALL_MODULE_SUBPROJECTS=("nextjs-landing-page" "react-gallery-app" "vue-flash
 UNINSTALL_MODULE_SUBPROJECTS=("nextjs-landing-page" "react-gallery-app" "vue-flash-card-app")
 ```
 
-- Each module sub-module should have a `config.env` file containing the environment-specific configuration for that sub-module and a scripts directory containing the scripts that can be run by modulize
-  - Example: `frontend/nextjs-landing-page/config.env`
+- Each module sub-module should have a `.env.common` file containing the environment-specific configuration for that sub-module and a scripts directory containing the scripts that can be run by modulize
+  - Example: `frontend/nextjs-landing-page/.env.common`
 ```bash
 # 1/ Module name
 MODULE_NAME="nextjs-landing-page"
@@ -81,7 +81,7 @@ MODULE_NAME="nextjs-landing-page"
 #!/bin/bash
 # makes sure the folder containing the script will be the root folder
 cd "$(dirname "$0")" || exit
-source ../config.env
+source ../.env.common
 rm -rfv ../node_modules
 npm --prefix .. install
 ```
@@ -103,21 +103,21 @@ To use Modulize, run the script with the following options:
 
 ```bash
 MODULE_DIR
-├── config.env
+├── .env.common
 ├── SUBMODULE_DIR
-│   ├── config.env
+│   ├── .env.common
 │   ├── scripts
 │   └── source
 └── SUBMODULE_DIR
-    ├── config.env
+    ├── .env.common
     ├── scripts
     └── source
 ```
 
-### Module `config.env`
+### Module `.env.common`
 
-- if MODULE_DIR contains `config.env`:
-  - inside `config.env` the variables keeping the submodules names must be declared
+- if MODULE_DIR contains `.env.common`:
+  - inside `.env.common` the variables keeping the submodules names must be declared
   - submodules must be declared in the order of execution
     Example:
 
