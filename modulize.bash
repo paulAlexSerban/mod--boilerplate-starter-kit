@@ -32,7 +32,7 @@ usage() {
 
 print_header() {
   echo "================================================"
-  echo -e "   Modulize Project Automation v1.3.0"
+  echo -e "   Modulize Project Automation v1.4.0"
   echo -e "   Prj. Name: ${BLUE}${PORJECT_NAME}${NC}"
   echo -e "   Prj. Version: ${BLUE}${MODULIZE_VERSION}${NC}"
   echo -e "   Prj. Author:  ${BLUE}${PORJECT_AUTHOR}${NC}"
