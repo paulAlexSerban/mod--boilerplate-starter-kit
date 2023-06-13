@@ -1,3 +1,17 @@
+# [1.4.0](https://github.com/paulAlexSerban/mod--boilerplate-starter-kit/compare/v1.3.1...v1.4.0) (2023-06-13)
+
+
+### Features
+
+* **configuration files and structure:** updated configuration files and structure ([3f9fafe](https://github.com/paulAlexSerban/mod--boilerplate-starter-kit/commit/3f9fafef511587e7ecee7caba92d74033def13d1))
+
+## [1.3.1](https://github.com/paulAlexSerban/mod--boilerplate-starter-kit/compare/v1.3.0...v1.3.1) (2023-05-24)
+
+
+### Bug Fixes
+
+* **module selection function:** fix module selection feature ([49c6cad](https://github.com/paulAlexSerban/mod--boilerplate-starter-kit/commit/49c6cadbeacdd27fb3961218cb9280137f8ade65))
+
 # [1.3.0](https://github.com/paulAlexSerban/mod--boilerplate-starter-kit/compare/v1.2.0...v1.3.0) (2023-05-08)
 
 
