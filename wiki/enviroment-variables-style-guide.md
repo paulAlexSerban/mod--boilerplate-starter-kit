@@ -10,13 +10,29 @@ We use environment variables to manage configurations that vary between deployme
 
 We use the following `.env.*` files to separate common and environment-specific configurations:
 
-- **.env.common**: Contains configuration data common to all environments. No sensitive data should be stored here.
-- **.env.secrets**: This file contains sensitive information such as API keys, database passwords, etc. This file should never be committed to version control.
+- **.env**: This file contains sensitive information such as API keys, database passwords, etc. This file should never be committed to version control.
 - **.env.example**: An example file that contains all environment variables needed for the project with dummy values. This file serves as a guide to other developers and should be committed to version control.
 - **.env.development**: Contains configuration data specific to the development environment.
 - **.env.production**: Contains configuration data specific to the production environment.
 - **.env.test**: Contains configuration data specific to the test environment.
 - **.env.gh_pages**: Contains configuration data specific to the GitHub Pages environment.
+- **.env.secrets**: Contains sensitive configuration data specific to the development environment. This file should never be committed to version control.
+- **.env.secrets.example**: An example file that contains all environment variables needed for the project with dummy values. This file serves as a guide to other developers and should be committed to version control.
+- **.env.secrets.development**: Contains sensitive configuration data specific to the development environment.
+- **.env.secrets.production**: Contains sensitive configuration data specific to the production environment.
+- **.env.secrets.test**: Contains sensitive configuration data specific to the test environment.
+- **.env.secrets.gh_pages**: Contains sensitive configuration data specific to the GitHub Pages environment.
+- **.env.local**: Contains configuration data specific to the development environment. This file should never be committed to version control.
+- **.env.local.example**: An example file that contains all environment variables needed for the project with dummy values. This file serves as a guide to other developers and should be committed to version control.
+- **.env.local.development**: Contains configuration data specific to the development environment.
+- **.env.local.production**: Contains configuration data specific to the production environment.
+- **.env.local.test**: Contains configuration data specific to the test environment.
+- **.env.local.gh_pages**: Contains configuration data specific to the GitHub Pages environment.
+- **.env.local.secrets**: Contains sensitive configuration data specific to the development environment. This file should never be committed to version control.
+- **.env.local.secrets.example**: An example file that contains all environment variables needed for the project with dummy values. This file serves as a guide to other developers and should be committed to version control.
+- **.env.local.secrets.development**: Contains sensitive configuration data specific to the development environment.
+- **.env.local.secrets.production**: Contains sensitive configuration data specific to the production environment.
+- **.env.local.secrets.test**: Contains sensitive configuration data specific to the test environment.
 
 ## Using `dotenv`
 
