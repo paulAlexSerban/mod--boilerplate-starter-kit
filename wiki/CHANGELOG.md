@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/paulAlexSerban/mod--boilerplate-starter-kit/compare/v1.6.0...v1.7.0) (2023-06-15)
+
+
+### Features
+
+* **enviorment viarables:** udpated structure of enviorment variables ([7f5e373](https://github.com/paulAlexSerban/mod--boilerplate-starter-kit/commit/7f5e373bfcfb816f1735d29078bb756b232d88ae))
+
 # [1.6.0](https://github.com/paulAlexSerban/mod--boilerplate-starter-kit/compare/v1.5.0...v1.6.0) (2023-06-13)
 
 

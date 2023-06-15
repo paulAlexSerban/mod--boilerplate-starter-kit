@@ -4,8 +4,8 @@
 directoryPath="."
 
 # Define old and new file names
-oldFileName=".env.common"
-newFileName=".env.common"
+oldFileName=".env.production"
+newFileName=".env.productionuction"
 
 # Define patterns to exclude
 excludePatterns=("package-lock.json" "*.log" "*.tmp")
