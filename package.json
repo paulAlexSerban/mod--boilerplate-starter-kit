@@ -12,9 +12,9 @@
     "formats:check": "npx prettier --check .",
     "formats:write": "npx prettier --write .",
     "MODULIZE": "SCRIPTS",
-    "mdz:dev:build": "bash modulize.bash --env dev --phase build",
-    "mdz:dev:clean": "bash modulize.bash --env dev --phase clean",
-    "mdz:dev:install": "bash modulize.bash --env dev --phase install"
+    "mdz:dev:build": "bash modulize.bash -.env.development --phase build",
+    "mdz:dev:clean": "bash modulize.bash -.env.development --phase clean",
+    "mdz:dev:install": "bash modulize.bash -.env.development --phase install"
   },
   "author": "Paul Serban",
   "license": "ISC",

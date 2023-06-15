@@ -1,12 +1,12 @@
 #!/bin/bash
 set -eo pipefail
-MODULIZE_VERSION=$(node -p "require('./package.json').version")
+PROJECT_VERSION=$(node -p "require('./package.json').version")
 PORJECT_NAME=$(node -p "require('./package.json').name")
 PORJECT_AUTHOR=$(node -p "require('./package.json').author")
 # makes sure the folder containing the script will be the root folder
 cd "$(dirname "$0")" || exit
 
-. ./.env.common
+. ./.env
 
 # Colors for printing messages
 NC='\033[0m' # No Color
@@ -32,9 +32,9 @@ usage() {
 
 print_header() {
   echo "================================================"
-  echo -e "   Modulize Project Automation v1.6.0"
+  echo -e "   Modulize Project Automation v${PROJECT_VERSION}"
   echo -e "   Prj. Name: ${BLUE}${PORJECT_NAME}${NC}"
-  echo -e "   Prj. Version: ${BLUE}${MODULIZE_VERSION}${NC}"
+  echo -e "   Prj. Version: ${BLUE}${PROJECT_VERSION}${NC}"
   echo -e "   Prj. Author:  ${BLUE}${PORJECT_AUTHOR}${NC}"
   echo "================================================"
 }
@@ -98,13 +98,13 @@ init() {
         if [[ "$DIR" == "scripts" ]]; then
           phase ./${i} ${PHASE} ${i}
         fi
-        if [[ ! -f "./${i}/.env.common" ]]; then
+        if [[ ! -f "./${i}/.env" ]]; then
           phase ./${i}/${DIR} ${PHASE} ${DIR}
         fi
       done
 
-      if [[ -f "./${i}/.env.common" ]]; then
-        . "./${i}/.env.common"
+      if [[ -f "./${i}/.env" ]]; then
+        . "./${i}/.env"
 
         for j in "${INSTALL_MODULE_SUBPROJECTS[@]}"; do
           phase ./${i}/${j} ${PHASE} ${j}
