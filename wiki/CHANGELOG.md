@@ -1,3 +1,15 @@
+# [1.8.0](https://github.com/paulAlexSerban/mod--boilerplate-starter-kit/compare/v1.7.0...v1.8.0) (2023-06-28)
+
+
+### Bug Fixes
+
+* small adjustments ([7fbafae](https://github.com/paulAlexSerban/mod--boilerplate-starter-kit/commit/7fbafaebfa78e8cf379f8fd639f1982699cbc34b))
+
+
+### Features
+
+* **.mdz and modulize:** chanegd from scripts to .mdz for modlize scripts and updated modulize ([481e854](https://github.com/paulAlexSerban/mod--boilerplate-starter-kit/commit/481e854a1395a4ffb876052f4f3cccafa3ff9f9a))
+
 # [1.7.0](https://github.com/paulAlexSerban/mod--boilerplate-starter-kit/compare/v1.6.0...v1.7.0) (2023-06-15)
 
 
