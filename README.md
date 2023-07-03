@@ -44,7 +44,7 @@ Modulize is implemented using the following technologies:
 ### Install
 
 - Download or clone the Modulize repository to your local machine.
-- Ensure the main script (modulize.sh) is executable by running `chmod +x modulize.sh`.
+- Ensure the main script (modulize.sh) is executable by running `chmod +x modulize`.
 - Add `.env.development` to your project root directory and add the following environment variables:
 
 ```bash
@@ -89,7 +89,7 @@ npm --prefix .. install
 
 - Simply invoke the script with the desired options to run the task on the specified modules.
 ```bash
-bash modulize  -e dev -p install -m frontend
+./modulize  -e dev -p install -m frontend
 ```
 
 ## Usage
