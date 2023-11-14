@@ -143,3 +143,9 @@ MODULE_DIR
 - Improved documentation and examples for easier adoption.
 - Performance optimizations for faster task execution.
 - Enhanced modularity and code organization for better maintainability.
+
+## To Do's
+- [ ] refactor to TypeScript CLI
+  - [ ] research: 'build-your-own-x: Node.js CLI Tool'
+- [ ] build as a NPM package
+- [ ] example use in monorepo tools and micro-repo tool with docker compose for local development and deployment
