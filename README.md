@@ -44,7 +44,7 @@ Modulize is implemented using the following technologies:
 ### Install
 
 - Download or clone the Modulize repository to your local machine.
-- Ensure the main script (modulize.sh) is executable by running `chmod +x modulize`.
+- Ensure the main script (modulize) is executable by running `chmod +x modulize`.
 - Add `.env.development` to your project root directory and add the following environment variables:
 
 ```bash
